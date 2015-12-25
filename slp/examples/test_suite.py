@@ -9,7 +9,7 @@ import slp.utils.parser as parser
 import slp.core.node_utils as node_utils
 import numpy as np
 
-def basic_poly_test():
+def poly_eval_test():
 
     '''
     f = 3x+5y evaluated at (1,3) giving f(1,3) = 18
@@ -24,11 +24,11 @@ def basic_poly_test():
     s_2 = nodes.sum_node(s_0,s_1)
     output = nodes.output_node([s_2])
 
-    print(output.evaluate({v_0:1,v_1:3})==[18])
+    print("Evaluates the slp representing f(x,y) = 3x+5y at (1,3) which yields [18]")
+    print("Output: ",output.evaluate({v_0:1,v_1:3}))
+    print("Evaluation matches expected value: ",output.evaluate({v_0:1,v_1:3})==[18])
 
-
-
-def derivative_test():
+def poly_derivative_test():
     c_0 = nodes.constant_node(3)
     c_1 = nodes.constant_node(5)
     v_0 = nodes.variable_node()
@@ -48,8 +48,7 @@ def derivative_test():
 
     print(output.evaluate({v_0:2,v_1:3}))
 
-
-def input_test():
+def input_slp_test():
     n = parser.read_in_slp('sample_slp_input.txt').nodes[0] 
     #print(node_utils.get_variable_dependencies(n))
     print(node_utils.get_all_dependencies(n))
@@ -114,12 +113,9 @@ def matrix_determinant_derivative_test():
     '''
     9+3x-5x = 9-2x
     '''
-
-
-
+    
     output = nodes.output_node([det,d])
     print(output.evaluate({v_0:2}))
-
 
 def matrix_solve_test():
     c_0 = nodes.constant_node(3)
@@ -149,7 +145,6 @@ def matrix_solve_derivative_test():
     output = nodes.output_node([d])
     print(output.evaluate({v_0:2}))
 
-
 def vector_solve_test():
     c_0 = nodes.constant_node(-1)
     c_1 = nodes.constant_node(1)
@@ -162,16 +157,16 @@ def vector_solve_test():
     print(output.evaluate({}))  
 
 
-print("Basic Polynomial Test:\n")
-basic_poly_test()
+print("Polynomial Evaluation Test:\n")
+poly_eval_test()
 print("\n\n")
 
-print("Basic Derivative Test:\n")
-derivative_test()
+print("Polynomial Derivative Test:\n")
+poly_derivative_test()
 print("\n\n")
 
 print("Basic Input File Test:\n")
-input_test()
+input_slp_test()
 print("\n\n")
 
 print("Basic Matrix Sum Test:\n")
@@ -196,4 +191,8 @@ print("\n\n")
 
 print("Basic Solve Derivative Test:\n")
 matrix_solve_derivative_test()
+print("\n\n")
+
+print("Vector Solve Test\n")
+vector_solve_test()
 print("\n\n")
