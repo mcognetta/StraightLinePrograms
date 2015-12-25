@@ -161,22 +161,27 @@ def vector_solve_test():
     output = nodes.output_node([s])
     print(output.evaluate({}))  
 
-'''
+
 print("Basic Polynomial Test:\n")
 basic_poly_test()
 print("\n\n")
+
 print("Basic Derivative Test:\n")
 derivative_test()
 print("\n\n")
-#print("Basic Input File Test:\n")
-#input_test()
-#print("\n\n")
+
+print("Basic Input File Test:\n")
+input_test()
+print("\n\n")
+
 print("Basic Matrix Sum Test:\n")
 matrix_sum_test()
 print("\n\n")
+
 print("Basic Determinant Test:\n")
 matrix_determinant_test()
 print("\n\n")
+
 print("Basic Matrix Derivative Test:\n")
 matrix_derivative_test()
 print("\n\n")
@@ -185,7 +190,6 @@ print("Basic Determinant Derivative Test:\n")
 matrix_determinant_derivative_test()
 print("\n\n")
 
-
 print("Basic Solve Test:\n")
 matrix_solve_test()
 print("\n\n")
@@ -193,7 +197,3 @@ print("\n\n")
 print("Basic Solve Derivative Test:\n")
 matrix_solve_derivative_test()
 print("\n\n")
-'''
-#matrix_solve_test()
-#vector_solve_test()
-derivative_test()
